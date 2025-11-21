@@ -63,7 +63,7 @@
             color: white;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .summary-card.warning {
@@ -77,39 +77,67 @@
         .summary-card h3 {
             font-size: 14px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
             opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
-        .summary-card .amount {
+        .amount {
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 5px;
         }
         
-        .summary-card .detail {
+        .detail {
             font-size: 14px;
-            opacity: 0.85;
+            opacity: 0.8;
+        }
+        
+        .target-input-wrapper {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .target-input-wrapper input {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100px;
+            outline: none;
+        }
+        
+        .target-input-wrapper input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .target-input-wrapper input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
         
         .sections {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
         }
         
         .section {
             background: #f8f9fa;
             padding: 25px;
             border-radius: 15px;
-            border: 2px solid #e9ecef;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         .section h2 {
             font-size: 20px;
-            color: #667eea;
+            color: #333;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -120,67 +148,105 @@
             font-size: 24px;
         }
         
+        .subsection {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .subsection:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .subsection h3 {
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .editable-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .editable-title input {
+            flex: 1;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #667eea;
+            outline: none;
+            background: white;
+        }
+        
+        .editable-title input:focus {
+            border-color: #667eea;
+        }
+        
+        .editable-title input::placeholder {
+            color: #ccc;
+            font-style: italic;
+        }
+        
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .input-group label {
             display: block;
             font-size: 14px;
-            font-weight: 600;
-            color: #495057;
-            margin-bottom: 8px;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 500;
         }
         
         .input-wrapper {
-            position: relative;
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        
+        .input-wrapper:focus-within {
+            border-color: #667eea;
         }
         
         .input-prefix {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6c757d;
+            background: #f8f9fa;
+            padding: 10px 12px;
+            color: #666;
             font-weight: 600;
+            border-right: 2px solid #e0e0e0;
         }
         
-        input[type="number"] {
-            width: 100%;
-            padding: 12px 15px;
-            padding-left: 35px;
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
+        input[type="number"], input[type="text"] {
+            flex: 1;
+            border: none;
+            padding: 10px 12px;
             font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        input[type="number"]:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
         
-        .subsection {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .subsection h3 {
-            font-size: 16px;
-            color: #495057;
-            margin-bottom: 15px;
-            font-weight: 600;
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            opacity: 1;
         }
         
         .result-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #e9ecef;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
         }
         
         .result-row:last-child {
@@ -189,41 +255,21 @@
         
         .result-label {
             font-size: 14px;
-            color: #6c757d;
+            color: #666;
         }
         
         .result-value {
             font-size: 16px;
             font-weight: 600;
-            color: #495057;
-        }
-        
-        .totals-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-        
-        .totals-section h2 {
-            color: white;
-            margin-bottom: 20px;
+            color: #333;
         }
         
         .total-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            font-size: 18px;
-        }
-        
-        .total-row.grand-total {
-            font-size: 24px;
-            font-weight: 700;
-            border-bottom: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 0;
             padding-top: 20px;
             margin-top: 10px;
             border-top: 2px solid rgba(255,255,255,0.3);
@@ -273,22 +319,17 @@
         const { useState } = React;
 
         function IncomeCalculator() {
-            // Retainer Packages (Tier 1)
-            const [starterQty, setStarterQty] = useState(0);
-            const [growthQty, setGrowthQty] = useState(0);
-            const [premiumQty, setPremiumQty] = useState(0);
+            // Monthly target (now editable)
+            const [monthlyTarget, setMonthlyTarget] = useState(4200);
             
-            // Project-Based Services (Tier 2)
-            const [projectRevenue, setProjectRevenue] = useState(0);
-            
-            // Hourly Consulting (Tier 3)
-            const [hourlyConsultingHours, setHourlyConsultingHours] = useState(0);
-            
-            // Existing Consulting rates and hours
-            const [htRate, setHtRate] = useState(45);
-            const [htHours, setHtHours] = useState(10);
-            const [flRate, setFlRate] = useState(29.25);
-            const [flHours, setFlHours] = useState(5);
+            // Consulting clients - 5 editable slots
+            const [clients, setClients] = useState([
+                { name: 'HT Digital', rate: 45, hours: 10 },
+                { name: 'Flying Leap', rate: 29.25, hours: 5 },
+                { name: '', rate: 0, hours: 0 },
+                { name: '', rate: 0, hours: 0 },
+                { name: '', rate: 0, hours: 0 }
+            ]);
             
             // Art products - quantities per month
             const [bikiniQty, setBikiniQty] = useState(25);
@@ -315,26 +356,24 @@
             const [ptHours, setPtHours] = useState(0);
             const [ptRate, setPtRate] = useState(0);
 
-            // Calculations
-            const htMonthly = htRate * htHours * 4;
-            const flMonthly = flRate * flHours * 4;
+            // Update client data
+            const updateClient = (index, field, value) => {
+                const newClients = [...clients];
+                newClients[index][field] = value;
+                setClients(newClients);
+            };
+
+            // Calculations - Consulting
+            const totalConsultingRevenue = clients.reduce((sum, client) => {
+                return sum + (client.rate * client.hours * 4);
+            }, 0);
+            
+            const consultingHoursPerMonth = clients.reduce((sum, client) => {
+                return sum + (client.hours * 4);
+            }, 0);
+            
+            // Calculations - Other
             const ptMonthly = ptRate * ptHours * 4;
-            
-            // Retainer package revenue
-            const starterRevenue = starterQty * 1000;
-            const growthRevenue = growthQty * 1750;
-            const premiumRevenue = premiumQty * 2500;
-            const totalRetainerRevenue = starterRevenue + growthRevenue + premiumRevenue;
-            
-            // Retainer package hours (monthly)
-            const starterHours = starterQty * 20;
-            const growthHours = growthQty * 35;
-            const premiumHours = premiumQty * 50;
-            const totalRetainerHours = starterHours + growthHours + premiumHours;
-            
-            // Hourly consulting
-            const hourlyConsultingRevenue = hourlyConsultingHours * 50;
-            const hourlyConsultingMonthlyHours = hourlyConsultingHours;
             
             const bikiniRevenue = bikiniQty * bikiniNet;
             const toteRevenue = toteQty * toteNet;
@@ -342,11 +381,9 @@
             const stickerRevenue = stickerQty * stickerNet;
             
             const totalArtRevenue = bikiniRevenue + toteRevenue + printRevenue + stickerRevenue + originalsRevenue + commissionsRevenue;
-            const totalConsultingRevenue = htMonthly + flMonthly + totalRetainerRevenue + projectRevenue + hourlyConsultingRevenue;
             const totalMonthlyIncome = totalConsultingRevenue + totalArtRevenue + supplemental + ptMonthly;
             
             // Time calculations
-            const consultingHoursPerMonth = (htHours + flHours) * 4 + totalRetainerHours + hourlyConsultingMonthlyHours;
             const ptHoursPerMonth = ptHours * 4;
             const artProductionHours = (bikiniQty * bikiniTime) + (toteQty * toteTime) + (printQty * printTime) + (stickerQty * stickerTime);
             const totalHoursPerMonth = consultingHoursPerMonth + artProductionHours + ptHoursPerMonth;
@@ -355,8 +392,7 @@
             // Effective hourly rate
             const effectiveHourlyRate = totalHoursPerMonth > 0 ? totalMonthlyIncome / totalHoursPerMonth : 0;
             
-            // Monthly target
-            const monthlyTarget = 4200;
+            // Gap calculation
             const gapToTarget = monthlyTarget - totalMonthlyIncome;
 
             // Scenario functions
@@ -367,11 +403,6 @@
                 setStickerQty(0);
                 setOriginalsRevenue(0);
                 setCommissionsRevenue(0);
-                setStarterQty(0);
-                setGrowthQty(0);
-                setPremiumQty(0);
-                setProjectRevenue(0);
-                setHourlyConsultingHours(0);
             };
 
             const loadBalancedMix = () => {
@@ -381,11 +412,6 @@
                 setStickerQty(0);
                 setOriginalsRevenue(0);
                 setCommissionsRevenue(0);
-                setStarterQty(0);
-                setGrowthQty(0);
-                setPremiumQty(0);
-                setProjectRevenue(0);
-                setHourlyConsultingHours(0);
             };
 
             const loadGoalsByJune2026 = () => {
@@ -395,52 +421,12 @@
                 setStickerQty(0);
                 setOriginalsRevenue(0);
                 setCommissionsRevenue(0);
-                setStarterQty(0);
-                setGrowthQty(0);
-                setPremiumQty(0);
-                setProjectRevenue(0);
-                setHourlyConsultingHours(0);
             };
 
             const loadMinimalArt = () => {
                 setBikiniQty(0);
                 setToteQty(0);
                 setPrintQty(10);
-                setStickerQty(0);
-                setOriginalsRevenue(0);
-                setCommissionsRevenue(0);
-                setStarterQty(0);
-                setGrowthQty(0);
-                setPremiumQty(0);
-                setProjectRevenue(0);
-                setHourlyConsultingHours(0);
-            };
-
-            const loadConsultingHeavy = () => {
-                // 2 Starter packages + 1 Growth package scenario
-                setStarterQty(2);
-                setGrowthQty(1);
-                setPremiumQty(0);
-                setProjectRevenue(1000); // ~2 projects/month
-                setHourlyConsultingHours(10);
-                setBikiniQty(10);
-                setToteQty(10);
-                setPrintQty(20);
-                setStickerQty(0);
-                setOriginalsRevenue(0);
-                setCommissionsRevenue(0);
-            };
-
-            const loadRetainerFocused = () => {
-                // 1 Premium + 1 Growth package
-                setStarterQty(0);
-                setGrowthQty(1);
-                setPremiumQty(1);
-                setProjectRevenue(500);
-                setHourlyConsultingHours(0);
-                setBikiniQty(0);
-                setToteQty(0);
-                setPrintQty(0);
                 setStickerQty(0);
                 setOriginalsRevenue(0);
                 setCommissionsRevenue(0);
@@ -463,251 +449,92 @@
                             </div>
                             
                             <div className={`summary-card ${gapToTarget > 0 ? 'warning' : 'success'}`}>
-                                <h3>Gap to $4,200 Target</h3>
+                                <h3>Gap to Target</h3>
                                 <div className="amount">${Math.abs(gapToTarget).toFixed(0)}</div>
                                 <div className="detail">{gapToTarget > 0 ? 'Still needed' : 'Over target!'}</div>
+                                <div className="target-input-wrapper">
+                                    <span style={{fontSize: '14px', opacity: 0.9}}>Target: $</span>
+                                    <input 
+                                        type="number" 
+                                        value={monthlyTarget} 
+                                        onChange={(e) => setMonthlyTarget(Number(e.target.value))}
+                                        placeholder="4200"
+                                    />
+                                </div>
                             </div>
                             
                             <div className="summary-card">
-                                <h3>Total Hours/Month</h3>
-                                <div className="amount">{totalHoursPerMonth.toFixed(0)}</div>
-                                <div className="detail">{totalHoursPerWeek.toFixed(1)} hours/week</div>
-                            </div>
-                            
-                            <div className="summary-card success">
-                                <h3>Effective Hourly Rate</h3>
-                                <div className="amount">${effectiveHourlyRate.toFixed(0)}</div>
-                                <div className="detail">Across all income</div>
+                                <h3>Total Hours/Week</h3>
+                                <div className="amount">{totalHoursPerWeek.toFixed(1)}</div>
+                                <div className="detail">Effective rate: ${effectiveHourlyRate.toFixed(2)}/hr</div>
                             </div>
                         </div>
 
                         {/* Scenario Buttons */}
                         <div className="scenario-buttons">
-                            <button className="scenario-btn" onClick={loadGoalsByJune2026}>
-                                🎯 June 2026 Goals
+                            <button className="scenario-btn" onClick={loadPrintFocused}>
+                                📊 Print-Focused (171 prints/month)
                             </button>
                             <button className="scenario-btn" onClick={loadBalancedMix}>
                                 ⚖️ Balanced Mix
                             </button>
-                            <button className="scenario-btn" onClick={loadPrintFocused}>
-                                🖼️ Print-Focused
+                            <button className="scenario-btn" onClick={loadGoalsByJune2026}>
+                                🎯 June 2026 Goals
                             </button>
                             <button className="scenario-btn" onClick={loadMinimalArt}>
-                                💼 Consulting-Heavy
-                            </button>
-                            <button className="scenario-btn" onClick={loadRetainerFocused}>
-                                📦 Retainer Packages
-                            </button>
-                            <button className="scenario-btn" onClick={loadConsultingHeavy}>
-                                🚀 Full Consulting Model
+                                🎨 Minimal Art Focus
                             </button>
                         </div>
 
-                        {/* Input Sections */}
                         <div className="sections">
-                            {/* Freelance Consulting */}
+                            {/* Consulting Income - 5 Editable Slots */}
                             <div className="section">
-                                <h2><span className="section-icon">💼</span> Freelance Consulting</h2>
+                                <h2><span className="section-icon">💼</span> Consulting Income</h2>
                                 
-                                <div className="subsection">
-                                    <h3>HT Digital</h3>
-                                    <div className="input-group">
-                                        <label>Hourly Rate</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">$</span>
+                                {clients.map((client, index) => (
+                                    <div key={index} className="subsection">
+                                        <div className="editable-title">
                                             <input 
-                                                type="number" 
-                                                value={htRate} 
-                                                onChange={(e) => setHtRate(Number(e.target.value))}
+                                                type="text"
+                                                value={client.name}
+                                                onChange={(e) => updateClient(index, 'name', e.target.value)}
+                                                placeholder={`Client ${index + 1}`}
                                             />
                                         </div>
-                                    </div>
-                                    <div className="input-group">
-                                        <label>Hours per Week</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                value={htHours} 
-                                                onChange={(e) => setHtHours(Number(e.target.value))}
-                                            />
+                                        <div className="input-group">
+                                            <label>Hourly Rate</label>
+                                            <div className="input-wrapper">
+                                                <span className="input-prefix">$</span>
+                                                <input 
+                                                    type="number" 
+                                                    value={client.rate} 
+                                                    onChange={(e) => updateClient(index, 'rate', Number(e.target.value))}
+                                                />
+                                            </div>
                                         </div>
+                                        <div className="input-group">
+                                            <label>Hours per Week</label>
+                                            <div className="input-wrapper">
+                                                <span className="input-prefix">hrs</span>
+                                                <input 
+                                                    type="number" 
+                                                    value={client.hours} 
+                                                    onChange={(e) => updateClient(index, 'hours', Number(e.target.value))}
+                                                />
+                                            </div>
+                                        </div>
+                                        {client.rate > 0 && client.hours > 0 && (
+                                            <div className="result-row">
+                                                <span className="result-label">Monthly Revenue</span>
+                                                <span className="result-value">${(client.rate * client.hours * 4).toFixed(0)}</span>
+                                            </div>
+                                        )}
                                     </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Monthly Revenue</span>
-                                        <span className="result-value">${htMonthly.toFixed(0)}</span>
-                                    </div>
-                                </div>
+                                ))}
 
-                                <div className="subsection">
-                                    <h3>Flying Leap</h3>
-                                    <div className="input-group">
-                                        <label>Hourly Rate</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">$</span>
-                                            <input 
-                                                type="number" 
-                                                value={flRate} 
-                                                onChange={(e) => setFlRate(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="input-group">
-                                        <label>Hours per Week</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                value={flHours} 
-                                                onChange={(e) => setFlHours(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Monthly Revenue</span>
-                                        <span className="result-value">${flMonthly.toFixed(0)}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Tier 1: Retainer Packages */}
-                            <div className="section">
-                                <h2><span className="section-icon">📦</span> Tier 1: Retainer Packages</h2>
-                                
-                                <div className="subsection">
-                                    <h3>Starter Package ($1,000/month)</h3>
-                                    <div className="input-group">
-                                        <label>Number of Clients</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                value={starterQty} 
-                                                onChange={(e) => setStarterQty(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Monthly Revenue</span>
-                                        <span className="result-value">${starterRevenue.toFixed(0)}</span>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Consulting Hours</span>
-                                        <span className="result-value">{starterHours} hrs/month</span>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Includes</span>
-                                        <span className="result-value" style={{fontSize: '12px'}}>20hrs • 1 vertical • Monthly check-in</span>
-                                    </div>
-                                </div>
-
-                                <div className="subsection">
-                                    <h3>Growth Package ($1,750/month)</h3>
-                                    <div className="input-group">
-                                        <label>Number of Clients</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                value={growthQty} 
-                                                onChange={(e) => setGrowthQty(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Monthly Revenue</span>
-                                        <span className="result-value">${growthRevenue.toFixed(0)}</span>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Consulting Hours</span>
-                                        <span className="result-value">{growthHours} hrs/month</span>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Includes</span>
-                                        <span className="result-value" style={{fontSize: '12px'}}>35hrs • 2 verticals • Bi-weekly</span>
-                                    </div>
-                                </div>
-
-                                <div className="subsection">
-                                    <h3>Premium Package ($2,500/month)</h3>
-                                    <div className="input-group">
-                                        <label>Number of Clients</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                value={premiumQty} 
-                                                onChange={(e) => setPremiumQty(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Monthly Revenue</span>
-                                        <span className="result-value">${premiumRevenue.toFixed(0)}</span>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Consulting Hours</span>
-                                        <span className="result-value">{premiumHours} hrs/month</span>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Includes</span>
-                                        <span className="result-value" style={{fontSize: '12px'}}>50hrs • All verticals • Weekly</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Tier 2: Project-Based Pricing */}
-                            <div className="section">
-                                <h2><span className="section-icon">🎯</span> Tier 2: Project-Based</h2>
-                                
-                                <div className="subsection">
-                                    <h3>Monthly Project Revenue</h3>
-                                    <div className="input-group">
-                                        <label>Total Project Revenue</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">$</span>
-                                            <input 
-                                                type="number" 
-                                                value={projectRevenue} 
-                                                onChange={(e) => setProjectRevenue(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div style={{fontSize: '12px', color: '#6c757d', marginTop: '10px', lineHeight: '1.5'}}>
-                                        <strong>Example Projects:</strong><br/>
-                                        • Website Audit: $500<br/>
-                                        • SEO Strategy: $1,000<br/>
-                                        • 90-Day Social Strategy: $500<br/>
-                                        • Email Campaign Setup: $300<br/>
-                                        • Annual Marketing Plan: $1,750
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Tier 3: Hourly Consulting */}
-                            <div className="section">
-                                <h2><span className="section-icon">⏰</span> Tier 3: Hourly Consulting</h2>
-                                
-                                <div className="subsection">
-                                    <h3>Ad-Hoc Hourly Work ($50/hr)</h3>
-                                    <div className="input-group">
-                                        <label>Hours per Month</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                value={hourlyConsultingHours} 
-                                                onChange={(e) => setHourlyConsultingHours(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Monthly Revenue</span>
-                                        <span className="result-value">${hourlyConsultingRevenue.toFixed(0)}</span>
-                                    </div>
-                                    <div style={{fontSize: '12px', color: '#6c757d', marginTop: '10px'}}>
-                                        Minimum 3-hour engagement • Net 15 terms
-                                    </div>
+                                <div className="result-row total-row">
+                                    <span className="result-label">Total Consulting</span>
+                                    <span className="result-value">${totalConsultingRevenue.toFixed(0)}</span>
                                 </div>
                             </div>
 
@@ -739,30 +566,14 @@
                                             />
                                         </div>
                                     </div>
-                                    <div className="input-group">
-                                        <label>Hours per Bikini</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                step="0.25"
-                                                value={bikiniTime} 
-                                                onChange={(e) => setBikiniTime(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
                                     <div className="result-row">
                                         <span className="result-label">Monthly Revenue</span>
                                         <span className="result-value">${bikiniRevenue.toFixed(0)}</span>
                                     </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Production Hours</span>
-                                        <span className="result-value">{(bikiniQty * bikiniTime).toFixed(1)} hrs</span>
-                                    </div>
                                 </div>
 
                                 <div className="subsection">
-                                    <h3>Tote Bags</h3>
+                                    <h3>Totes</h3>
                                     <div className="input-group">
                                         <label>Quantity per Month</label>
                                         <div className="input-wrapper">
@@ -785,47 +596,16 @@
                                             />
                                         </div>
                                     </div>
-                                    <div className="input-group">
-                                        <label>Hours per Tote</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                step="0.25"
-                                                value={toteTime} 
-                                                onChange={(e) => setToteTime(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
                                     <div className="result-row">
                                         <span className="result-label">Monthly Revenue</span>
                                         <span className="result-value">${toteRevenue.toFixed(0)}</span>
                                     </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Production Hours</span>
-                                        <span className="result-value">{(toteQty * toteTime).toFixed(1)} hrs</span>
-                                    </div>
-                                </div>
-
-                                <div className="subsection">
-                                    <h3>Commissions (Monthly)</h3>
-                                    <div className="input-group">
-                                        <label>Total Revenue</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">$</span>
-                                            <input 
-                                                type="number" 
-                                                value={commissionsRevenue} 
-                                                onChange={(e) => setCommissionsRevenue(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
-                            {/* Art Products - Prints & Other */}
+                            {/* Art Products - Prints & Stickers */}
                             <div className="section">
-                                <h2><span className="section-icon">🖼️</span> Prints & Other Art</h2>
+                                <h2><span className="section-icon">🎨</span> Prints & Other</h2>
                                 
                                 <div className="subsection">
                                     <h3>Prints</h3>
@@ -852,25 +632,9 @@
                                             />
                                         </div>
                                     </div>
-                                    <div className="input-group">
-                                        <label>Hours per Print</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                step="0.05"
-                                                value={printTime} 
-                                                onChange={(e) => setPrintTime(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
                                     <div className="result-row">
                                         <span className="result-label">Monthly Revenue</span>
                                         <span className="result-value">${printRevenue.toFixed(0)}</span>
-                                    </div>
-                                    <div className="result-row">
-                                        <span className="result-label">Production Hours</span>
-                                        <span className="result-value">{(printQty * printTime).toFixed(1)} hrs</span>
                                     </div>
                                 </div>
 
@@ -899,18 +663,6 @@
                                             />
                                         </div>
                                     </div>
-                                    <div className="input-group">
-                                        <label>Hours per Sticker</label>
-                                        <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
-                                            <input 
-                                                type="number" 
-                                                step="0.05"
-                                                value={stickerTime} 
-                                                onChange={(e) => setStickerTime(Number(e.target.value))}
-                                            />
-                                        </div>
-                                    </div>
                                     <div className="result-row">
                                         <span className="result-label">Monthly Revenue</span>
                                         <span className="result-value">${stickerRevenue.toFixed(0)}</span>
@@ -918,9 +670,9 @@
                                 </div>
 
                                 <div className="subsection">
-                                    <h3>Original Art Sales (Monthly)</h3>
+                                    <h3>Originals & Commissions</h3>
                                     <div className="input-group">
-                                        <label>Total Revenue</label>
+                                        <label>Original Paintings Revenue</label>
                                         <div className="input-wrapper">
                                             <span className="input-prefix">$</span>
                                             <input 
@@ -930,12 +682,28 @@
                                             />
                                         </div>
                                     </div>
+                                    <div className="input-group">
+                                        <label>Commission Work Revenue</label>
+                                        <div className="input-wrapper">
+                                            <span className="input-prefix">$</span>
+                                            <input 
+                                                type="number" 
+                                                value={commissionsRevenue} 
+                                                onChange={(e) => setCommissionsRevenue(Number(e.target.value))}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="result-row total-row">
+                                    <span className="result-label">Total Art Revenue</span>
+                                    <span className="result-value">${totalArtRevenue.toFixed(0)}</span>
                                 </div>
                             </div>
 
-                            {/* Other Income */}
+                            {/* Additional Income */}
                             <div className="section">
-                                <h2><span className="section-icon">🎭</span> Other Income</h2>
+                                <h2><span className="section-icon">✨</span> Additional Income</h2>
                                 
                                 <div className="subsection">
                                     <h3>Supplemental (Acting/Art)</h3>
@@ -953,7 +721,7 @@
                                 </div>
 
                                 <div className="subsection">
-                                    <h3>Part-Time Work</h3>
+                                    <h3>Part-Time Work (Optional)</h3>
                                     <div className="input-group">
                                         <label>Hourly Rate</label>
                                         <div className="input-wrapper">
@@ -968,7 +736,7 @@
                                     <div className="input-group">
                                         <label>Hours per Week</label>
                                         <div className="input-wrapper">
-                                            <span className="input-prefix">#</span>
+                                            <span className="input-prefix">hrs</span>
                                             <input 
                                                 type="number" 
                                                 value={ptHours} 
@@ -982,54 +750,27 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Totals Section */}
-                        <div className="totals-section">
-                            <h2>📊 Monthly Breakdown</h2>
-                            <div className="total-row">
-                                <span>Current Clients (HT + FL)</span>
-                                <span>${(htMonthly + flMonthly).toFixed(0)}</span>
-                            </div>
-                            <div className="total-row">
-                                <span>Retainer Packages</span>
-                                <span>${totalRetainerRevenue.toFixed(0)}</span>
-                            </div>
-                            <div className="total-row">
-                                <span>Project-Based Work</span>
-                                <span>${projectRevenue.toFixed(0)}</span>
-                            </div>
-                            <div className="total-row">
-                                <span>Hourly Consulting</span>
-                                <span>${hourlyConsultingRevenue.toFixed(0)}</span>
-                            </div>
-                            <div className="total-row" style={{borderTop: '1px solid rgba(255,255,255,0.3)', paddingTop: '15px', marginTop: '5px'}}>
-                                <span><strong>Total Consulting Revenue</strong></span>
-                                <span><strong>${totalConsultingRevenue.toFixed(0)}</strong></span>
-                            </div>
-                            <div className="total-row">
-                                <span>Art Products Revenue</span>
-                                <span>${totalArtRevenue.toFixed(0)}</span>
-                            </div>
-                            <div className="total-row">
-                                <span>Supplemental Income</span>
-                                <span>${supplemental.toFixed(0)}</span>
-                            </div>
-                            <div className="total-row">
-                                <span>Part-Time Work</span>
-                                <span>${ptMonthly.toFixed(0)}</span>
-                            </div>
-                            <div className="total-row grand-total">
-                                <span>TOTAL MONTHLY INCOME</span>
-                                <span>${totalMonthlyIncome.toFixed(0)}</span>
-                            </div>
-                            <div className="total-row">
-                                <span>Total Hours per Month</span>
-                                <span>{totalHoursPerMonth.toFixed(1)} hrs ({totalHoursPerWeek.toFixed(1)} hrs/week)</span>
-                            </div>
-                            <div className="total-row">
-                                <span>Effective Hourly Rate</span>
-                                <span>${effectiveHourlyRate.toFixed(2)}/hr</span>
+                            {/* Time Investment */}
+                            <div className="section">
+                                <h2><span className="section-icon">⏰</span> Time Investment</h2>
+                                
+                                <div className="result-row">
+                                    <span className="result-label">Consulting Hours/Month</span>
+                                    <span className="result-value">{consultingHoursPerMonth} hrs</span>
+                                </div>
+                                <div className="result-row">
+                                    <span className="result-label">Art Production Hours/Month</span>
+                                    <span className="result-value">{artProductionHours.toFixed(1)} hrs</span>
+                                </div>
+                                <div className="result-row">
+                                    <span className="result-label">Part-Time Hours/Month</span>
+                                    <span className="result-value">{ptHoursPerMonth} hrs</span>
+                                </div>
+                                <div className="result-row total-row">
+                                    <span className="result-label">Total Hours/Month</span>
+                                    <span className="result-value">{totalHoursPerMonth.toFixed(1)} hrs</span>
+                                </div>
                             </div>
                         </div>
                     </div>
